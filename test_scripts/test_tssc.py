@@ -9,10 +9,13 @@ from PIL import Image
 img = np.asarray(Image.open(sys.argv[1]).convert('RGB'))
 
 time_start = time.time()
-nlabels, labels = TSSuperPixel(img, 1000, 5, 1)
+nlabels, labels = TSSuperPixel(img.copy(), 1000, 5, 1)
 labels = np.asarray(labels)
+nlabels = np.max(labels)
+print(labels)
 time_end = time.time()
-time_used = time_end - time_start; time_used
+time_used = time_end - time_start
+print(time_used)
 
 palette = np.random.randint(0, high=0xFFFFFF, size=nlabels)
 colored = np.empty_like(labels, dtype=np.int32)

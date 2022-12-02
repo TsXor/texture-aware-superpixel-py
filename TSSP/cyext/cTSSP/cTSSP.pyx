@@ -1,5 +1,5 @@
 # cython:language_level=3
-cdef extern from "./TSSP.h":
+cdef extern from "TSSP.h":
     ctypedef size_t mwSize
 
     ctypedef struct TSSP_result_t:
